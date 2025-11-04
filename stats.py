@@ -26,3 +26,14 @@ def count_char(file_contents):
         else:
             char_count_dict[char] = 1
     return char_count_dict
+
+# helper function for chars_dict_to_sorted_list
+def sort_on(dict_item):
+    return dict_item["num"]
+
+def chars_dict_to_sorted_list(char_count_dict):
+    sorted_list = []
+    for char in char_count_dict:
+        sorted_list.append({"char": char, "num": char_count_dict[char]})
+    sorted_list.sort(reverse=True, key=sort_on)
+    return sorted_list
